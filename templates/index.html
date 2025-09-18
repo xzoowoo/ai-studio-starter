@@ -1,0 +1,67 @@
+
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>AI 스튜디오 - 프로필 이미지 생성기</title>
+  <link rel="stylesheet" href="/static/styles.css" />
+</head>
+<body>
+  <div class="page">
+    <aside class="left">
+      <h1>AI 스튜디오</h1>
+      <p class="sub">AI 프로필 사진 생성기</p>
+
+      <div class="card">
+        <h2>1) 사진 업로드 (선택)</h2>
+        <p class="muted">MVP는 업로드한 사진을 <b>참고용으로만</b> 저장합니다. (얼굴 복제는 다음 단계에서 추가)</p>
+        <label class="upload">
+          <input id="fileInput" type="file" accept="image/*" />
+          <span id="uploadLabel">여기를 눌러 사진을 선택하세요</span>
+        </label>
+        <img id="preview" class="preview" style="display:none;" alt="업로드 미리보기" />
+      </div>
+
+      <div class="card">
+        <h2>2) 촬영 옵션</h2>
+        <div class="options">
+          <div>
+            <div class="label">구도</div>
+            <label><input type="radio" name="composition" value="half" checked /> 상반신</label>
+            <label><input type="radio" name="composition" value="full" /> 전신</label>
+          </div>
+          <div>
+            <div class="label">스타일</div>
+            <select id="style">
+              <option value="clean">깨끗한 스튜디오</option>
+              <option value="film">필름 감성</option>
+              <option value="corporate">비즈니스 헤드샷</option>
+              <option value="modern">모던/그라데이션</option>
+              <option value="colorpop">컬러 팝</option>
+              <option value="bw">흑백 스튜디오</option>
+            </select>
+          </div>
+        </div>
+        <div>
+          <div class="label">추가 프롬프트 (선택)</div>
+          <input id="prompt" class="prompt" placeholder="예) 자연광, 흰 셔츠, 배경은 파스텔 톤" />
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>3) 프로필 사진 생성</h2>
+        <button id="genBtn" class="btn">생성 시작</button>
+        <div id="status" class="status">대기 중</div>
+      </div>
+    </aside>
+
+    <main class="right">
+      <h2>갤러리</h2>
+      <div id="gallery" class="grid"></div>
+    </main>
+  </div>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>
